@@ -1,0 +1,110 @@
+// Set the correct sprite paths
+//$iconSpritePath: image-path('glyphicons-halflings.png');
+//$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+// $navbarBackground: #398439;
+$navbarBackgroundHighlight: #077d9f; //#0e0e0e //#0093c9
+$navbarText: #eee;
+$navbarLinkColor: #eee;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body { 
+  background: url(dotted.png);;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+header {
+  background: #eeeeee url(noise.png) repeat;
+  .navbar {
+    margin-bottom: 0;
+
+    img{
+      padding-left: 3px;
+    }
+  }
+}
+
+.jumbotron {
+    background: #fff url(bacon_ninja_cover.png) no-repeat;
+    -webkit-background-size: 50%;
+    -moz-background-size: 50%;
+    -o-background-size: 50%;
+    background-size: 50%;
+    //background-attachment: fixed;
+    height: 245px;
+    margin-bottom: 0;
+    padding: 0 0 0 0;
+}
+
+#presentation {
+  height: 350px;
+  h1 {
+    color: #fff;
+  }
+}
+
+#link {
+  margin-top: 0;
+}
+
+.linkloading {
+   //background: #5bc0de;
+    h4, h5, a, span { color: #e1e1e1; }
+}
+
+#side {
+  position: fixed;
+  height: 800px;
+}
+
+#side, #about {
+  //background: #5bc0de;
+  //border-left: 1px solid #5cb85c;
+  -webkit-box-shadow: inset 19px -5px 15px -25px rgba(92, 184, 92, 1);
+  -moz-box-shadow:    inset 19px -5px 15px -25px rgba(92, 184, 92, 1);
+  box-shadow:         inset 19px -5px 15px -25px rgba(92, 184, 92, 1);
+
+  width: 100%;
+
+  .media {
+    padding-left: 10px;
+  }
+
+  .info {
+    padding-left: 25px;
+  }
+}
+
+// HERE GOES THE STICKY FOOTER
+html,
+body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  
+  margin: 0 auto -60px;
+  
+  padding: 0 0 60px;
+}
+
+#footer {
+  background: #333 url(noise.png) repeat;
+  height: 60px;
+
+  .container {
+  }
+
+  a, p, span {
+    color: #fff;
+  }
+}
+// HERE IT ENDS.
