@@ -117,17 +117,17 @@ form {
 #post {
   background: #c32929;
 
+  h3, h4, h5, h6, a {
+      color: #fff;
+      padding: 0 5px 0 5px;
+    }
+
   .img-polaroid {
     margin-bottom: 20px;
     padding: 0 0 10px 0;
 
     img {
       width: 100%;
-    }
-
-    h3, h4, h5, h6, a {
-      color: #fff;
-      padding: 0 5px 0 5px;
     }
   }
 }
