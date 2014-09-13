@@ -39,8 +39,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+#gem 'urss', git: 'git://github.com/CelsoDeSa/urss.git'
+gem 'feedjira'
+
 gem 'rails_12factor', group: :production #heroku suggestion
-gem 'urss', git: 'git://github.com/CelsoDeSa/urss.git'
 gem 'feed_searcher'
 gem 'will_paginate', '~> 3.0.0'
 gem 'rack-google-analytics'
