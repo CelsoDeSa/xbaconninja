@@ -30,13 +30,14 @@ header {
 }
 
 .jumbotron {
-    background: #fff url(bacon_ninja_cover.png) no-repeat;
-    -webkit-background-size: 50%;
-    -moz-background-size: 50%;
-    -o-background-size: 50%;
-    background-size: 50%;
+    background: #fff url(xbacon_ninja_cover.png) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border-bottom: 10px solid #c32929;
     //background-attachment: fixed;
-    height: 245px;
+    height: 250px;
     margin-bottom: 0;
     padding: 0 0 0 0;
 }
@@ -108,3 +109,25 @@ body {
   }
 }
 // HERE IT ENDS.
+
+form {
+  background: #fff;
+}
+
+#post {
+  background: #d9534f;
+
+  .img-polaroid {
+    margin-bottom: 20px;
+    padding: 0 0 10px 0;
+
+    img {
+      width: 100%;
+    }
+
+    h3, h4, h5, h6, a {
+      color: #fff;
+      padding: 0 10px 0 10px;
+    }
+  }
+}

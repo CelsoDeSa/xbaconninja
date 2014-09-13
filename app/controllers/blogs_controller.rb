@@ -4,7 +4,14 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @videos = Post.page(params[:page]).per_page(4).videos
+    @pictures = Post.page(params[:page]).per_page(5).pictures
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @blogs }
+      format.js
+    end
   end
 
   # GET /blogs/1

@@ -5,18 +5,25 @@
 
 <div class="container" id="presentation">
   <div class="row">
-  
-    <div class="col-md-4">
-        <h1>Listing blogs</h1>
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-4" id="videos">
+        <%= render "video" %>
     </div>
 
-    <div class="col-md-4">
-        <h1>Listing blogs</h1>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-4" id="pictures">
+        <%= render "picture" %>
     </div>
 
-    <div class="col-md-4">
-        <h1>Listing blogs</h1>
-    </div>
+    <div class="col-md-1"></div>
 
+  </div>
+
+  <div style="display: none">
+    <%= will_paginate @videos %>
+    <%= will_paginate @pictures %>
   </div>
 </div>
