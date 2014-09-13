@@ -1,0 +1,16 @@
+<br>
+<% @pictures1.each do |blog| %>
+  <% if @pictures1.index(blog).odd? %>
+    <div id="post" class="thumbnail">
+      <div class="img-polaroid" id=<%= blog.id %>>
+
+        <%= image_tag blog.media %>
+
+        <h4 class="text-left">
+          <%= link_to sanitize(blog.title), blog.url, target: "_blank" %>
+        </h4> 
+
+      </div>
+    </div>
+  <% end %>
+<% end %>

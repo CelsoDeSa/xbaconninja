@@ -4,8 +4,9 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @videos = Post.page(params[:page]).per_page(4).videos
-    @pictures = Post.page(params[:page]).per_page(5).pictures
+    @videos = Post.page(params[:page]).per_page(3).videos
+    @pictures1 = Post.page(params[:page]).per_page(6).pictures
+    @pictures2 = Post.page(params[:page]).per_page(6).pictures
 
     respond_to do |format|
       format.html # index.html.erb
