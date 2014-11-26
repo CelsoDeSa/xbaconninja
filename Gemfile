@@ -40,7 +40,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 #gem 'urss', git: 'git://github.com/CelsoDeSa/urss.git'
-gem 'feedjira'
+gem 'feedjira' #it conflicts with stuff
 
 gem 'rails_12factor', group: :production #heroku suggestion
 gem 'feed_searcher'

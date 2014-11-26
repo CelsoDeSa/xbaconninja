@@ -6,6 +6,30 @@ class Post < ActiveRecord::Base
   scope :videos, -> { where(category: "video").order(created_at: :desc) }
   scope :pictures, -> { where(category: "picture").order(created_at: :desc) }
 
+  BADWORDS = %w(bunda bundas bundinha bundinhas caralho caralhos buceta bucetas cu cus merda fuder transar)
+
+  def self.content_check(title, content)
+    @badwords = 0
+    title_scanned = title.scan(/\w+/)
+    content_scanned = content.scan(/\w+/)
+
+    BADWORDS.each do |b|
+      title_scanned.each do |t|
+          if b == t
+            @badwords+=1
+          end
+        end
+    end
+
+    BADWORDS.each do |b|
+      content_scanned.each do |c|
+          if b == c
+            @badwords+=1
+          end
+        end
+    end
+  end
+
   def self.define_media(content, feed, media_url)
     content = content
     feed = feed
@@ -15,11 +39,11 @@ class Post < ActiveRecord::Base
       media_url.gsub!(/(watch\?v\=)/, 'embed/').gsub!(/(&.*gdata)/, '')
       @media = media_url
       @category = "video"
-    else  
+    else
       if content.match(/(http:..www.youtube.com.embed.*?)\"/).present?
          @media = content.match(/(http:..www.youtube.com.embed.*?)\"/)[1]
          @category = "video"
-      elsif content.match(/(http:..player.vimeo.com.video.\d+)/).present?            
+      elsif content.match(/(http:..player.vimeo.com.video.\d+)/).present?
         @media = content.match(/(http:..player.vimeo.com.video.\d+)/)[1]
         @category = "video"
          else
@@ -37,6 +61,9 @@ class Post < ActiveRecord::Base
   	records = Post.where(blog_id: "#{@blog.id}")
 
   	feed.entries.each do |entry|
+      @title = entry.title
+      @url = entry.url
+      @content = entry.content
 
     	if records
         count = (records.length)-1
@@ -51,32 +78,30 @@ class Post < ActiveRecord::Base
             count -= 1
           end
         end
-
       end
 
-      if fail == 0
-        @content = entry.content
-        @url = entry.url
+      Post.content_check(@title, @content) #will check for badwords
 
+      if fail == 0 and @badwords == 0
           Post.define_media(@content, @blog.feed, @url)
           #if string.match(/(src\W+)/).present? and string.match(/.(png|jpg|gif|jpeg)/).present?
           #  string = string.match(/src="(http.*?(png|gif|jpg|jpeg))"/) ? string.match(/src="(http.*?(png|gif|jpg|jpeg))"/)[1] : fail
-          #elsif string.match(/href='(http.*?(youtube).*?)'/).present? 
+          #elsif string.match(/href='(http.*?(youtube).*?)'/).present?
             ##para vimeo|youtube: /(http:..player.vimeo.com.video.\d+)|(http:..www.youtube.com.*?)\"/
           #  string = entry.url
           #end
-          
+
     		create(
     			media: @media,
-          		title: entry.title,
-          		url: entry.url,
-    			category: @category,   			
+          		title: @title,
+          		url: @url,
+    			category: @category,
     			blog_id: @blog.id
     		).valid?
       else
         next
       end
-  	end	
+  	end
   end
 
   def self.update
