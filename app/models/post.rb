@@ -6,7 +6,9 @@ class Post < ActiveRecord::Base
   scope :videos, -> { where(category: "video").order(created_at: :desc) }
   scope :pictures, -> { where(category: "picture").order(created_at: :desc) }
 
-  BADWORDS = %w(bunda bundas bundinha bundinhas caralho caralhos buceta bucetas cu cus merda fuder transar)
+  BADWORDS = %w(bunda bundas bundinha bundinhas caralho caralhos gostosa gostosas
+                sexual sexuais buceta bucetas cu cus merda fuder transar
+                )
 
   def self.content_check(title, content)
     @badwords = 0
