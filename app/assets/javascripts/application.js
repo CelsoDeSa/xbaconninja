@@ -20,7 +20,7 @@ jQuery(function() {
     $(window).scroll(function() {
       var url;
       url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height()) {
         $('.pagination').text("Servindo mais XBACON...");
         return $.getScript(url);
       }
