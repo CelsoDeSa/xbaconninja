@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   validates :media, presence: true, uniqueness: true
 
   scope :videos, -> { where(category: "video").order(created_at: :desc) }
-  scope :pictures, -> { where(category: "picture").order(created_at: :desc) }
+  scope :pictures, -> { order(created_at: :desc) }
 
   BADWORDS = %w(bunda bundas bundinha bundinhas caralho caralhos gostosa gostosas
                 sexual sexuais buceta bucetas cu cus merda fuder transar

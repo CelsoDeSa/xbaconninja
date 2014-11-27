@@ -20,6 +20,7 @@
         <div class="img-polaroid" id=<%= blog.id %>>
 
           <h3>
+            <span class="glyphicon glyphicon-link"></span>
             <%= link_to sanitize(blog.title), blog.url, target: "_blank" %>
           </h3>
 
@@ -31,7 +32,9 @@
               class="embed-responsive-item">
             </iframe>
           </div>
-          <h4 class="text-right"><%= blog.blog.name %></h4>
+          <h4 class="text-right">
+            <%= link_to blog.blog.name, blog.url, target: "_blank", class: "fi-at-sign" %>
+          </h4>
         </div>
       </div>
 
