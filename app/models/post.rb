@@ -126,11 +126,12 @@ class Post < ActiveRecord::Base
 
         unless url.path.empty?
           res = req.request_head(url.path)
+          res = res.code
         else
           res = "000"
         end
-        
-  		  if res.code == "200"
+
+  		  if res == "200"
           Post.update_from_feed(@blog.feed)
         else
           next
