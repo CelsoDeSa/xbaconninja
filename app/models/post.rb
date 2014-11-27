@@ -12,8 +12,18 @@ class Post < ActiveRecord::Base
 
   def self.content_check(title, content)
     @badwords = 0
-    title_scanned = title.scan(/\w+/) or [""]
-    content_scanned = content.scan(/\w+/) or [""]
+
+    if title
+      title_scanned = title.scan(/\w+/)
+    else
+       title_scanned = [""]
+    end
+
+    if content
+      content_scanned = content.scan(/\w+/)
+    else
+      content_scanned = [""]
+    end
 
     BADWORDS.each do |b|
       title_scanned.each do |t|
