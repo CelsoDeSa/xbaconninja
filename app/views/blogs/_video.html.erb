@@ -1,20 +1,19 @@
-<br>
 <% @videos.each do |blog| %>
 <div id="post" class="thumbnail">
   <div class="img-polaroid" id=<%= blog.id %>>
 
   <div class="embed-responsive embed-responsive-4by3">
-    <iframe src=<%= blog.media %> 
-      allowfullscreen="allowfullscreen" 
-      webkitallowfullscreen="webkitAllowFullScreen" 
-      mozallowfullscreen="mozallowfullscreen" 
+    <iframe src=<%= blog.media %>
+      allowfullscreen="allowfullscreen"
+      webkitallowfullscreen="webkitAllowFullScreen"
+      mozallowfullscreen="mozallowfullscreen"
       class="embed-responsive-item">
     </iframe>
   </div>
-    
+
     <h4 class="text-left">
       <%= link_to sanitize(blog.title), blog.url, target: "_blank" %>
-    </h4> 
+    </h4>
   </div>
     <h6 class="text-right"><%= blog.blog.name %></h6>
 </div>

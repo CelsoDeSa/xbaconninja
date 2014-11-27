@@ -50,6 +50,9 @@ GEM
       curb (~> 0.8)
       loofah (~> 2.0)
       sax-machine (~> 1.0)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -168,6 +171,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   feed_searcher
   feedjira
+  foundation-icons-sass-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg

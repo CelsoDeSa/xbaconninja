@@ -1,27 +1,10 @@
-<div class="jumbotron">
-  <div class="container">
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-5" id="pictures">
+      <%= render "picture" %>
   </div>
 </div>
 
-<div class="container" id="presentation">
-  <div class="row">
-
-    <div class="col-md-4" id="videos">
-        <%= render "video" %>
-    </div>
-
-    <div class="col-md-4" id="pictures1">
-        <%= render "picture1" %>
-    </div>
-
-    <div class="col-md-4" id="pictures2">
-        <%= render "picture2" %>
-    </div>
-  </div>
-
-  <div style="display: none">
-    <%= will_paginate @videos %>
-    <%= will_paginate @pictures1 %>
-    <%= will_paginate @pictures2 %>
-  </div>
+<div style="display: none">
+  <%= will_paginate @pictures %>
 </div>
