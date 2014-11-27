@@ -123,8 +123,13 @@ class Post < ActiveRecord::Base
   		@blog = blog
       url = URI.parse(@blog.feed)
       req = Net::HTTP.new(url.host, url.port)
-      res = req.request_head(url.path) || "000"
 
+        unless url.path.empty?
+          res = req.request_head(url.path)
+        else
+          res = "000"
+        end
+        
   		  if res.code == "200"
           Post.update_from_feed(@blog.feed)
         else
