@@ -1,4 +1,12 @@
 class Post < ActiveRecord::Base
+  include PgSearch
+    pg_search_scope :search,
+                    against: :title,
+                    using: {
+                      tsearch: {
+                        dictionary: "portuguese"
+                      }
+                    }
   belongs_to :blog
 
   validates :media, presence: true, uniqueness: true
