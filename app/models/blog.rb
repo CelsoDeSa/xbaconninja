@@ -1,5 +1,14 @@
 class Blog < ActiveRecord::Base
-	has_many :posts
+	include PgSearch
+		pg_search_scope :search,
+										against: [:name, :url],
+										using: {
+											tsearch: {
+												dictionary: "portuguese"
+											}
+										}
+
+	has_many :posts, dependent: :destroy
 
 	validates :url, presence: true, uniqueness: true
 
