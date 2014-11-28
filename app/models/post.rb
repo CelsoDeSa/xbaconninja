@@ -15,7 +15,8 @@ class Post < ActiveRecord::Base
   scope :pictures, -> { order(created_at: :desc) }
 
   BADWORDS = %w(bunda bundas bundinha bundinhas caralho caralhos gostosa gostosas
-                sexual sexuais buceta bucetas cu cus merda fuder transar
+                sexual sexuais buceta bucetas cu cus merda fuder transar homem homens
+                mulher mulheres garoto garotos garota garotas
                 )
 
   def self.content_check(title, content)
